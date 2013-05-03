@@ -20,7 +20,9 @@ Template.meetupSubmit.events({
             "city": meetup.city
         }
       }
-      meetup.loc = [lat, lng];
+      
+      /* MongoDB expects coordinates in lng, lat format (x,y) */
+      meetup.loc = [lng, lat];
 
       Meetups.insert(meetup);
     });
